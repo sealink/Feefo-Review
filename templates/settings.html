@@ -1,0 +1,12 @@
+{% import '_includes/forms' as forms %}
+
+{{
+  forms.textField({
+    label: 'Feefo Merchant Identifier',
+    id: 'feefoMerchantId',
+    name: 'feefoMerchantId',
+    instructions: 'Set the Feefo Merchant Identifier, e.g. <code>captain-cook-cruises</code> <a href="https://support.feefo.com/support/solutions/articles/8000037204-where-to-find-my-merchant-identifier-" target="_blank" style="color:#da5a47;">Where to Find My Merchant Identifier?</a>',
+    required: true,
+    value: (settings.feefoMerchantId is defined ? settings.feefoMerchantId : null)
+  })
+}}
