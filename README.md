@@ -1,7 +1,7 @@
 # Feefo Review
 Feefo Review Feed for Craft CMS
 
-## Installing
+## Installation
 Install using composer
 ```
 "require": {
@@ -20,7 +20,7 @@ Without this value, the review widget and microdata won't appear.
 ```twig
 {% set reviewSummary = craft.feefoReview.getReviewSummary(entry.feefoProductCode) %}
 {% if reviewSummary %}
-  <h5 class="h5-title is-colour-primary-two no-colour-hover">Reviews</h5>
+  <h5>Reviews</h5>
   <div itemprop="aggregateRating"
     itemscope itemtype="http://schema.org/AggregateRating">
    Rated <span itemprop="ratingValue">{{reviewSummary.rating}}</span>/5
