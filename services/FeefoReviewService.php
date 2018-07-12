@@ -36,7 +36,7 @@ class FeefoReviewService extends BaseApplicationComponent
         craft()->cache->set($cacheKey, $products, 24*3600 /*24 hours*/);
     }
     return $products;
-}
+  }
 
   private function getProductReviews()
   {
