@@ -1,0 +1,17 @@
+{
+  "name": "sealink/feefo-review",
+  "description": "Feefo Review Feed for Craft CMS",
+  "authors": [
+    {
+      "name": "TravelLink",
+      "email": "development@travellink.com.au"
+    }
+  ],
+  "type": "craft-plugin",
+  "require": {
+    "composer/installers": "~1.0.0"
+  },
+  "extra": {
+    "installer-name": "feeforeview"
+  }
+}
