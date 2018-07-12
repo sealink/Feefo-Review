@@ -30,9 +30,9 @@ class FeefoReviewService extends BaseApplicationComponent
   private function getProducts() {
     $cacheKey = 'feefo_'.$this->feefoMerchantId();
     $products = craft()->cache->get($cacheKey);
-    if (is_null($products)) {
+    if ($products === false) {
       $products = $this->getProductReviews();
-      if (!is_null($products)
+      if ($products != null)
         craft()->cache->set($cacheKey, $products, 24*3600 /*24 hours*/);
     }
     return $products;
