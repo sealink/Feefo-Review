@@ -5,7 +5,7 @@ Feefo Review Feed for Craft CMS
 Install using composer
 ```
 "require": {
-  "sealink/feefo-review": "0.1.0"
+  "sealink/feefo-review": "1.0.0"
 }
 ```
 
