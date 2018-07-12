@@ -19,8 +19,8 @@ class FeefoReviewService extends BaseApplicationComponent
     $products = $this->getProducts();
     if ($products == null) return null;
 
-    $key = array_search($id, array_column($products, 'vendor_ref'));
-    return $key !== false ? $products[$key] : null;
+    $index = array_search($id, array_column($products, 'vendor_ref'));
+    return $index !== false ? $products[$index] : null;
   }
 
   public function feefoMerchantId() {
