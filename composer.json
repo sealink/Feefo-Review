@@ -1,6 +1,7 @@
 {
   "name": "sealink/feefo-review",
   "description": "Feefo Review Feed for Craft CMS",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "TravelLink",
