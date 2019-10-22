@@ -2,7 +2,7 @@
 
 ## Unreleased 
 
-* [DC-178] Fix Feefo extension crashing sites when service is unavailable
+* [DC-178] Fix Feefo extension crashing sites when service unavailable
 
 ## 1.0.0
 
