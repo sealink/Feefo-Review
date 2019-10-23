@@ -1,24 +1,19 @@
 <?php
 namespace Craft;
 
-class FeefoReviewService extends BaseApplicationComponent
-{
+class FeefoReviewService extends BaseApplicationComponent {
   public $plugin = null;
   public $settings = array();
 
-  public function __construct()
-  {
+  public function __construct() {
     $this->plugin   = craft()->plugins->getPlugin('feeforeview');
     $this->settings = $this->plugin->getSettings();
   }
 
-  public function getReviewSummary($id)
-  {
-    if ($this->feefoMerchantId() == null) return null;
+  public function getReviewSummary($id) {
+    if (is_null($this->feefoMerchantId())) return null;
 
     $products = $this->getProducts();
-    if ($products == null) return null;
-
     $index = array_search($id, array_column($products, 'vendor_ref'));
     return $index !== false ? $products[$index] : null;
   }
@@ -32,16 +27,18 @@ class FeefoReviewService extends BaseApplicationComponent
     $products = craft()->cache->get($cacheKey);
     if ($products === false) {
       $products = $this->getProductReviews();
-      if (!is_null($products))
-        craft()->cache->set($cacheKey, $products, 24*3600 /*24 hours*/);
+      craft()->cache->set($cacheKey, $products, 24*3600 /*24 hours*/);
     }
     return $products;
   }
 
-  private function getProductReviews()
-  {
-    $data = file_get_contents('https://api.feefo.com/api/10/products/ratings?merchant_identifier='.$this->feefoMerchantId().'&review_count=true&since_period=year');
-    $decodedData = json_decode($data);
-    return $decodedData->products;
+  private function getProductReviews() {
+    $data = @file_get_contents('https://api.feefo.com/api/10/products/ratings?merchant_identifier='.$this->feefoMerchantId().'&review_count=true&since_period=year');
+    $decodedData = @json_decode($data);
+    if (isset($decodedData) && isset($decodedData->products)) {
+      return $decodedData->products;
+    } else {
+      return [];
+    }
   }
 }
