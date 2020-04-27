@@ -1,6 +1,6 @@
 # Feefo Review
 
-## Unreleased 
+## 1.1.0
 
 * [DC-178] Fix Feefo extension crashing sites when service unavailable
 
